@@ -1,24 +1,32 @@
-FROM python:3.10.7-slim
+# pull official base image
+FROM python:3.10-alpine
 
+# set work directory
+WORKDIR /app
+
+# set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
-
 ENV PYTHONUNBUFFERED 1
+ENV DEBUG 0
 
-RUN mkdir /code
+# install psycopg2
+RUN apk update \
+    && apk add --virtual build-essential gcc python3-dev musl-dev \
+    && apk add postgresql-dev \
+    && pip install psycopg2
 
-WORKDIR /code
-
-RUN pip install --upgrade pip
-
-COPY requirements.txt /code/
-
+# install dependencies
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . /code/
+# copy project
+COPY . /app/
 
-EXPOSE 8000
+# add and run as non-root user
+RUN adduser -D myuser
+USER myuser
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-
-
-
+# run gunicorn
+RUN pwd
+RUN ls
+CMD gunicorn newsData.wsgi:application --bind 127.0.0.1:$PORT
