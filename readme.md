@@ -7,13 +7,13 @@ this simple application to read all most popular article from **The New York Tim
 
 # How To Run It
 ## If you use docker
-    https://github.com/rizalmdj02/tisigram.git
+    git clone https://github.com/rizalmdj02/tisigram.git
     cd tisigram
     docker build -t app:latest .
-    docker run -d --name app-data -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 web:latest
+    docker run -d --name app-data -e "PORT=8765" -e "DEBUG=1" -p 8007:8765 app:latest
     
 ## If not use docker
-    https://github.com/rizalmdj02/tisigram.git
+    git clone https://github.com/rizalmdj02/tisigram.git
     cd tisigram
     manage.py runserver
 
