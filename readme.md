@@ -7,5 +7,5 @@ this simple application to read all most popular article from **The New York Tim
 [Plase Visit](https://tisigram.herokuapp.com/)
 
 
-## Switch to another file
-```
+## Screen Capture
+![alt text](https://github.com/rizalmdj02/tisigram/blob/main/static/css/screencapture-tisigram-herokuapp-2022-10-10-11_48_51.png?raw=true)
