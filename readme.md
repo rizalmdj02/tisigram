@@ -14,6 +14,7 @@ this simple application to read all most popular article from **The New York Tim
     
 ## If not use docker
     https://github.com/rizalmdj02/tisigram.git
+    cd tisigram
     manage.py runserver
 
 
